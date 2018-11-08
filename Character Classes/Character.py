@@ -1,14 +1,4 @@
-youDiedASCII = """\
-          _______             ______  _________ _______  ______    
-|\     /|(  ___  )|\     /|  (  __  \ \__   __/(  ____ \(  __  \   
-( \   / )| (   ) || )   ( |  | (  \  )   ) (   | (    \/| (  \  )  
- \ (_) / | |   | || |   | |  | |   ) |   | |   | (__    | |   ) |  
-  \   /  | |   | || |   | |  | |   | |   | |   |  __)   | |   | |  
-   ) (   | |   | || |   | |  | |   ) |   | |   | (      | |   ) |  
-   | |   | (___) || (___) |  | (__/  )___) (___| (____/\| (__/  )  
-   \_/   (_______)(_______)  (______/ \_______/(_______/(______/   
-"""
-
+from ASCIIArt import *
 
 class Player(object):
     
@@ -87,6 +77,7 @@ class Inventory(Player):
 Player1 = Player()
 #Damage Test
 #Player1.playerTakesDamage(100)
+print(playerCharacter,pythonSnake)
 
 #Inventory Tests
 #Player1.inventory.addItemToInventory("Sword")
