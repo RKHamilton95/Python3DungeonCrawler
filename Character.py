@@ -36,20 +36,6 @@ class Player(object):
         else:
             self.playerHealth = self.playerHealth+amountHealed
 
-class Enemy(object):
-
-    def __init__(self):
-        self.enemyName = ""
-        self.enemyHealth = 30
-        self.enemyDamage = 5
-
-    def damageEnemy(self,damageDone):
-        self.enemyHealth -= damageDone
-
-    def doDamage(self):
-        return self.enemyDamage
-
-
 class Inventory(Player):
     
     def __init__(self):

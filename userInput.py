@@ -36,3 +36,6 @@ def inventoryMenu(inventoryDict):
     inventorySelection = input("Input Name Of Item You Want To Use")
     return inventorySelection
 
+def createCharacter():
+    playerName = input("Input Your Character Name")
+    return playerName
