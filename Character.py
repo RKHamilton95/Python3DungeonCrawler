@@ -12,10 +12,12 @@ class Player(object):
         self.playerWeaponName = ""
         self.inventory = Inventory()
 
+    def __str__(self):
+        return "Name: "+self.playerName+"\n"+"Health: "+str(self.playerHealth)+"\n"+"Damage: "+str(self.playerDamage)+"\n"+"Player Weapon: "+self.playerWeaponName+"\n"
     #Functions
     def playerDoesDamage(self):
         return self.playerDamage
-    
+
     #Getters
     def getPlayerHealth(self):
         return self.playerHealth
@@ -25,6 +27,10 @@ class Player(object):
         self.playerDamage = self.weaponDict[weaponName]
     
     #Setters
+    def setPlayerName(self):
+        playerName = input("Input Player Name: ")
+        self.playerName = playerName
+
     def playerTakesDamage(self,damage):
         if self.playerHealth - damage == 0:
             print(youDiedASCII)

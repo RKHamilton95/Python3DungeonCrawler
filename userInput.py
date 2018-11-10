@@ -20,7 +20,11 @@ def movementToCoodinates(x,y):
         x+=1
     return x,y
 
-def userMenu(inventoryDict):
+def gameStartMenu():
+    userInput = input("1. New Game\n2. Load Game\n3. Quit\n")
+    return userInput
+
+def userInGameMenu(inventoryDict):
 #Returns 1 for Attack or Key From Inventory Menu
     menuInput = input("1. Attack","2. Inventory")
     while menuInput != "1" | menuInput != "2":
@@ -35,7 +39,3 @@ def inventoryMenu(inventoryDict):
     print("Inventory: ",inventoryDict)
     inventorySelection = input("Input Name Of Item You Want To Use")
     return inventorySelection
-
-def createCharacter():
-    playerName = input("Input Your Character Name")
-    return playerName
