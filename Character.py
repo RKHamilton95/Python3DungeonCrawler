@@ -12,6 +12,10 @@ class Player(object):
         self.playerWeaponName = ""
         self.inventory = Inventory()
 
+    #Functions
+    def playerDoesDamage(self):
+        return self.playerDamage
+    
     #Getters
     def getPlayerHealth(self):
         return self.playerHealth
@@ -20,16 +24,14 @@ class Player(object):
         self.playerWeaponName = weaponName
         self.playerDamage = self.weaponDict[weaponName]
     
+    #Setters
     def playerTakesDamage(self,damage):
         if self.playerHealth - damage == 0:
             print(youDiedASCII)
-            exit(0)
+            exit(0) #Could Add Start Again here
         else:
             self.playerHealth = self.playerHealth - damage
 
-    def playerDoesDamage(self):
-        return self.playerDamage
-    
     def playerHeals(self,amountHealed):
         if((self.playerHealth+amountHealed) >= 100):
             self.playerHealth = 100
@@ -59,21 +61,4 @@ class Inventory(Player):
     def printInventory(self):
         print(self.inventory)
 
-
-Player1 = Player()
-#Damage Test
-#Player1.playerTakesDamage(100)
-print(playerCharacter,pythonSnake)
-
-#Inventory Tests
-#Player1.inventory.addItemToInventory("Sword")
-#Player1.inventory.addItemToInventory("Sword")
-#Player1.inventory.addItemToInventory("Sword")
-#Player1.inventory.addItemToInventory("Sword")
-#Player1.inventory.addItemToInventory("Healing")
-#Player1.inventory.printInventory()
-#Player1.inventory.removeFromInventory("Sword")
-#Player1.inventory.removeFromInventory("Sword")
-#Player1.inventory.removeFromInventory("Cat")
-#Player1.inventory.printInventory()
 
