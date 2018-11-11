@@ -3,7 +3,7 @@ from Character import *
 from userInput import *
 from enemies import *
 
-print("Game Title")
+print(titleASCII)
 print(gameStartMenu())
 
 newPlayer = Player()
