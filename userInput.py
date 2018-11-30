@@ -1,10 +1,10 @@
 def userMovementInput():
 #Returns Movement Input
-    movementInput = input("Enter UP,DOWN,LEFT or RIGHT")
-    movementInput.upper()
-    while movementInput != "UP" | movementInput != "DOWN" | movementInput != "LEFT" | movementInput != "RIGHT":
-        movementInput = input("TRY AGAIN: Enter UP,DOWN,LEFT or RIGHT")
-        movementInput.upper()
+    movementInput = input("Enter UP,DOWN,LEFT or RIGHT: ")
+    #movementInput.upper()
+    while movementInput != "UP" and movementInput != "DOWN" and movementInput != "LEFT" and movementInput != "RIGHT":
+        movementInput = input("TRY AGAIN: Enter UP,DOWN,LEFT or RIGHT: ")
+        #movementInput.upper()
     return movementInput
 
 def movementToCoodinates(x,y):
@@ -21,21 +21,41 @@ def movementToCoodinates(x,y):
     return x,y
 
 def gameStartMenu():
-    userInput = input("1. New Game\n2. Load Game\n3. Quit\n")
-    return userInput
+    val = input("1. New Game\n2. Load Game\n3. Quit\n")
+    val = int(val)
+    while(val != 1 and val != 2 and val != 3):
+        val = input("1. New Game\n2. Load Game\n3. Quit\n")
+        val = int(val)
+    return val
 
 def userInGameMenu(inventoryDict):
 #Returns 1 for Attack or Key From Inventory Menu
-    menuInput = input("1. Attack","2. Inventory")
-    while menuInput != "1" | menuInput != "2":
-        menuInput = input("1. Attack","2. Inventory")
+    menuInput = input("1. Attack\n2. Inventory: \n")
+    while menuInput != "1" and menuInput != "2":
+        menuInput = input("1. Attack\n2. Inventory: \n")
     if menuInput == "1":
-        return "1"
+        return 1
     elif menuInput == "2":
         return inventoryMenu(inventoryDict)
-    
+
 def inventoryMenu(inventoryDict):
 #Returns the Key of the item in inventory
     print("Inventory: ",inventoryDict)
-    inventorySelection = input("Input Name Of Item You Want To Use")
+    inventorySelection = input("Input Name Of Item You Want To Use: ")
     return inventorySelection
+
+def mazeSizePrompt():
+    val = input("Please enter difficulty\n1. Easy\n2. Normal\n3. Hard\n4. Very Hard\n5. Absolute Mad Lad\n")
+    val = int(val)
+    while(val != 1 and val != 2 and val != 3 and val != 4 and val != 5):
+        val = ("Please enter difficulty\n1. Easy\n2. Normal\n3. Hard\n4. Very Hard\n5. Absolute Mad Lad\n")
+        val = int(val)
+    return val
+
+def endMenu():
+    val = input("1. Continue\n2. Save and Continue\n3. Save and Quit\n")
+    val = int(val)
+    while(val != 1 and val != 2 and val != 3):
+        val = input("1. Continue\n2. Save and Continue\n3. Save and Quit\n")
+        val = int(val)
+    return val

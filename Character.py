@@ -1,22 +1,25 @@
 from ASCIIArt import *
+import random
 
 class Player(object):
-    
-    weaponDict = {"Sword":5,"Axe": 7,"Mace":8,"Claymore":10}
-    healthPotionDict = {"Healing": 10,"Greater Healing":20,"Superior Healing":50,"FulL Healing":100}
+
+    weaponDict = {"Sword": 7,"Axe": 9,"Mace":11,"Claymore": 13}
+    healthPotionDict = {"Potion": 10,"Great Potion":20,"Superior Potion":50,"Ultimate Potion":100}
 
     def __init__(self):
         self.playerName = ""
-        self.playerHealth = 100  
+        self.playerHealth = 100
         self.playerDamage = 5
-        self.playerWeaponName = ""
+        self.playerWeaponName = "fists"
         self.inventory = Inventory()
+        self.coords = [0 , 0]
 
     def __str__(self):
         return "Name: "+self.playerName+"\n"+"Health: "+str(self.playerHealth)+"\n"+"Damage: "+str(self.playerDamage)+"\n"+"Player Weapon: "+self.playerWeaponName+"\n"
+
     #Functions
     def playerDoesDamage(self):
-        return self.playerDamage
+        return self.playerDamage + random.randrange(0 , self.playerDamage)
 
     #Getters
     def getPlayerHealth(self):
@@ -25,7 +28,7 @@ class Player(object):
     def playerSwitchesToWeapon(self,weaponName):
         self.playerWeaponName = weaponName
         self.playerDamage = self.weaponDict[weaponName]
-    
+
     #Setters
     def setPlayerName(self):
         playerName = input("Input Player Name: ")
@@ -45,7 +48,7 @@ class Player(object):
             self.playerHealth = self.playerHealth+amountHealed
 
 class Inventory(Player):
-    
+
     def __init__(self):
         self.inventory = dict()
 
@@ -54,7 +57,7 @@ class Inventory(Player):
             self.inventory.update({ItemName:1})
         else:
             self.inventory[ItemName] += 1
-    
+
     def removeFromInventory(self,ItemName):
         if ItemName in self.inventory:
             if self.inventory[ItemName] == 1:
@@ -63,7 +66,7 @@ class Inventory(Player):
                 self.inventory[ItemName] -= 1
         else:
             print(ItemName,"Is not in inventory")
-    
+
     def printInventory(self):
         print(self.inventory)
 

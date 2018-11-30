@@ -1,19 +1,25 @@
-##This file will need work just needed to build a basic idea of the functions
+import csv
+from Character import *
 
-def loadGame():
-    try:
-       saveFile = open("saveFile.txt","r")
-       readItems = saveFile.read
-       saveFile.close
-       return readItems
-    except OSError:
-        print("Save File Does Not Exist")
+def loadPlayer(playerName):
+    arr = []
+    with open(playerName + '.csv', 'r') as csvfile:
+        reader = csv.reader(csvfile, delimiter = ',')
+        for line in reader:
+            arr.append(line)
+
+        p = Player()
+        p.playerName = arr[0]
+        p.playerHealth = int(arr[1])
+        p.playerDamage = int(arr[2])
+        p.playerWeaponName = arr[3]
+
+def savePlayer(playerData):
+    with open(playerData[0] + '.csv', 'w+') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(playerData[0])
+        writer.writerow(str(playerData[1]))
+        writer.writerow(str(playerData[2]))
+        writer.writerow(playerData[3])
 
 
-def saveGame(playerData):
-    try:
-        saveFile = open("saveFile.txt","w+")
-        saveFile.write(playerData)
-        saveFile.close
-    except OSError:
-        print("Error During Saving")
