@@ -4,22 +4,21 @@ from Character import *
 def loadPlayer(playerName):
     arr = []
     with open(playerName + '.csv', 'r') as csvfile:
-        reader = csv.reader(csvfile, delimiter = ',')
+        reader = csvfile.readlines()
         for line in reader:
-            arr.append(line)
+                line = line.rstrip()
+                arr.append(line)
 
         p = Player()
-        p.playerName = arr[0]
-        p.playerHealth = int(arr[1])
-        p.playerDamage = int(arr[2])
-        p.playerWeaponName = arr[3]
+        p.playerName = str(arr[0])
+        p.playerHealth = 100
+        p.playerDamage = int(arr[1])
+        p.playerWeaponName = arr[2]
+        return p
 
-def savePlayer(playerData):
-    with open(playerData[0] + '.csv', 'w+') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(playerData[0])
-        writer.writerow(str(playerData[1]))
-        writer.writerow(str(playerData[2]))
-        writer.writerow(playerData[3])
-
-
+def savePlayer(playerObj):
+    with open(playerObj.playerName + '.csv', 'w') as csvfile:
+        csvfile.write(playerObj.playerName+"\n")
+        #csvfile.write(str(playerObj.playerHealth))
+        csvfile.write(str(playerObj.playerDamage)+"\n")
+        csvfile.write(playerObj.playerWeaponName+"\n")

@@ -52,6 +52,9 @@ class Inventory(Player):
     def __init__(self):
         self.inventory = dict()
 
+    def __str__(self):
+        return self.inventory
+
     def addItemToInventory(self,ItemName):
         if ItemName not in self.inventory:
             self.inventory.update({ItemName:1})

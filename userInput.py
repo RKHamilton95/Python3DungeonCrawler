@@ -1,10 +1,11 @@
 def userMovementInput():
 #Returns Movement Input
     movementInput = input("Enter UP,DOWN,LEFT or RIGHT: ")
-    #movementInput.upper()
+    movementInput = movementInput.upper()
+    print(movementInput)
     while movementInput != "UP" and movementInput != "DOWN" and movementInput != "LEFT" and movementInput != "RIGHT":
         movementInput = input("TRY AGAIN: Enter UP,DOWN,LEFT or RIGHT: ")
-        #movementInput.upper()
+        movementInput = movementInput.upper()
     return movementInput
 
 def movementToCoodinates(x,y):
