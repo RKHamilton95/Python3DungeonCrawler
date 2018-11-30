@@ -1,4 +1,5 @@
 from ASCIIArt import *
+from userInput import *
 import random
 
 class Player(object):
@@ -35,8 +36,9 @@ class Player(object):
         self.playerName = playerName
 
     def playerTakesDamage(self,damage):
-        if self.playerHealth - damage == 0:
+        if self.playerHealth - damage <= 0:
             print(youDiedASCII)
+            endMenu()
             exit(0) #Could Add Start Again here
         else:
             self.playerHealth = self.playerHealth - damage

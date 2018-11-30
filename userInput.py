@@ -43,7 +43,13 @@ def inventoryMenu(inventoryDict):
 #Returns the Key of the item in inventory
     print("Inventory: ",inventoryDict)
     inventorySelection = input("Input Name Of Item You Want To Use: ")
-    return inventorySelection
+    if inventorySelection in inventoryDict:
+        return inventorySelection
+    else:
+        while inventorySelection not in inventoryDict:
+            inventorySelection = input("Erorr Not in Dict: Input Name Of Item You Want To Use: ")
+        return inventorySelection
+
 
 def mazeSizePrompt():
     val = input("Please enter difficulty\n1. Easy\n2. Normal\n3. Hard\n4. Very Hard\n5. Absolute Mad Lad\n")

@@ -114,7 +114,6 @@ while(True):
     endVal = endMenu()
     if(endVal == 2 or endVal == 3):
         #Save Character
-        #savePlayer([player.playerName, player.playerHealth, player.playerDamage, player.playerWeaponName])
         savePlayer(player)
     if(endVal == 3):
         exit()

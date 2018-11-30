@@ -9,7 +9,10 @@ class Enemy(object):
         self.ascii = ""
 
     def damageEnemy(self,damageDone):
-        self.enemyHealth -= damageDone
+        if self.enemyHealth - damageDone <=0:
+            self.enemyHealth = 0
+        else:
+            self.enemyHealth -= damageDone
 
     def doDamage(self):
         return self.enemyDamage + random.randrange(0, self.enemyDamage)
